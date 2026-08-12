@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #df7d71;
+  --primary-foreground: #fff8f6;
+  --primary-muted: #f8d9d3;
+
+  --success: #2f8f6b;
+  --success-foreground: #f2fff8;
+  --success-muted: #d9f5e7;
+
+  --danger: #c24b4b;
+  --danger-foreground: #fff6f6;
+  --danger-muted: #f8dede;
+
+  --warning: #c4893a;
+  --warning-foreground: #fffaf0;
+  --warning-muted: #f7ebd3;
+
+  --neutral-50: #f4f6f9;
+  --neutral-100: #e8ecf2;
+  --neutral-200: #d0d7e2;
+  --neutral-300: #a8b4c4;
+  --neutral-400: #7a889c;
+  --neutral-500: #5a6a7e;
+  --neutral-600: #304260;
+  --neutral-700: #1b3456;
+  --neutral-800: #142844;
+  --neutral-900: #0e2a4f;
+
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: #ffffff;
+  --ring: rgba(223, 125, 113, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+  color: var(--neutral-900);
+  background:
+    radial-gradient(1100px 560px at 6% -10%, rgba(223, 125, 113, 0.22), transparent 55%),
+    radial-gradient(900px 520px at 100% 0%, rgba(27, 52, 86, 0.14), transparent 52%),
+    linear-gradient(180deg, #e8eef5 0%, #f5f7fa 48%, #dce4ef 100%);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-300);
+  border-radius: 999px;
+}
+
+@layer utilities {
+  .page-shell {
+    @apply mx-auto w-full max-w-[1600px] px-4 py-6 md:px-8 md:py-8 lg:px-10;
+  }
+
+  .section-title {
+    @apply font-display text-xl font-semibold tracking-tight text-neutral-900 md:text-2xl;
+  }
+
+  .site-container {
+    @apply mx-auto w-full max-w-[1600px] px-4 md:px-8 lg:px-10;
+  }
+
+  .field-control {
+    @apply w-full rounded-2xl border border-neutral-200 bg-white/95 px-3.5 py-2.5 text-sm text-neutral-900 shadow-sm outline-none transition;
+    @apply focus:border-primary focus:ring-2 focus:ring-[var(--ring)];
+    @apply disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .field-control-error {
+    @apply border-danger;
+    --tw-ring-color: color-mix(in srgb, var(--danger) 30%, transparent);
+  }
+}
+
+input.field-control-number::-webkit-outer-spin-button,
+input.field-control-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input.field-control-number[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+textarea.field-control {
+  border-radius: 1rem;
+}
